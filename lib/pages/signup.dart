@@ -113,6 +113,7 @@ class _SignupPageState extends State<SignupPage> {
                   Padding(padding: EdgeInsets.only(left: 6)),
                   Checkbox(
                     value: _isChecked,
+                    activeColor: Colors.green,
                     onChanged: (value) {
                       setState(() {
                         _isChecked = value;
@@ -130,14 +131,19 @@ class _SignupPageState extends State<SignupPage> {
                 ],
               ),
               SizedBox(height: 20),
+
               MyButton(
                 ontap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) {
-                      return menu();
-                    }),
-                  );
+                  if (_isChecked == true) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) {
+                        return menu();
+                      }),
+                    );
+                  } else {
+                    return;
+                  }
                 },
                 nameBtn: "Sign Up",
               ),
