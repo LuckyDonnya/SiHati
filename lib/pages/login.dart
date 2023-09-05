@@ -20,6 +20,7 @@ class login extends StatelessWidget {
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
   final controller = TextEditingController();
+
 //sign in
   void signUserIn() {}
 
@@ -87,7 +88,7 @@ class login extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) {
-                      return OnboardingScreen();
+                      return menu();
                     }),
                   );
                 },

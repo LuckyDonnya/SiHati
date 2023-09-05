@@ -1,92 +1,64 @@
-import 'package:dot_navigation_bar/dot_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:sihati/pages/homepage.dart';
+import 'package:sihati/pages/permohonan.dart';
+import 'package:sihati/pages/profile.dart';
+import 'package:material_symbols_icons/symbols.dart';
+import 'package:sihati/pages/statistik.dart';
 
-// import 'package:sihati/pages/homePage.dart';
-
-// import 'package:sihati/pages/profile.dart';
-import 'package:sihati/pages/signup.dart';
-
-enum _SelectedTab { home, buy, favorite, profile }
-
+// ignore: camel_case_types
 class menu extends StatefulWidget {
   const menu({super.key});
 
   @override
-  State<menu> createState() => _menuState();
+  // ignore: library_private_types_in_public_api
+  _menuState createState() => _menuState();
 }
 
+// ignore: camel_case_types
 class _menuState extends State<menu> {
-  _SelectedTab _selectedTab = _SelectedTab.home;
+  int _selectedTabIndex = 0;
 
-  void _handleIndexChanged(int i) {
+  void _onNaBarTapped(int index) {
     setState(() {
-      _selectedTab = _SelectedTab.values[i];
+      _selectedTabIndex = index;
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    // ignore: non_constant_identifier_names
+    final Listpage = <Widget>[
+      homepage(),
+      const permohonan(),
+      const statistik(),
+      const profile()
+    ];
+
+    final bottomNavBarItems = <BottomNavigationBarItem>[
+      const BottomNavigationBarItem(
+          icon: Icon(Symbols.speed), label: "Dashboard"),
+      const BottomNavigationBarItem(
+          icon: Icon(Symbols.list_alt_rounded), label: "Permohonan"),
+      const BottomNavigationBarItem(
+          icon: Icon(Symbols.bar_chart_4_bars_rounded), label: "Statistik"),
+      const BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile")
+    ];
+
+    final bottomNavBar = BottomNavigationBar(
+      type: BottomNavigationBarType.fixed,
+      backgroundColor: const Color(0xffF4F4F4),
+      items: bottomNavBarItems,
+      currentIndex: _selectedTabIndex,
+      unselectedItemColor: Colors.black45,
+      selectedItemColor: const Color(0xff3883F3),
+      onTap: _onNaBarTapped,
+    );
+
     return Scaffold(
-      body: IndexedStack(
-        // height: MediaQuery.of(context).size.height,
-        // child: IndexedStack(
-        index: _SelectedTab.values.indexOf(_selectedTab),
-        children: [
-          // homepage(),
-          // myorders(),
-          // favorite(),
-          // profile(),
-        ],
-        // ),
+      body: Center(
+        child: Listpage[_selectedTabIndex],
       ),
-      extendBody: true,
-      bottomNavigationBar: DotNavigationBar(
-        margin: EdgeInsets.only(left: 50, right: 50),
-        currentIndex: _SelectedTab.values.indexOf(_selectedTab),
-        onTap: _handleIndexChanged,
-        dotIndicatorColor: Color(0xffEF9F27),
-        backgroundColor: Color.fromARGB(255, 255, 255, 255),
-        enableFloatingNavBar: false,
-        // paddingR: const EdgeInsets.symmetric(
-        //   vertical: 10,
-        //   horizontal: 20,
-        // ),
-        enablePaddingAnimation: false,
-        items: [
-          DotNavigationBarItem(
-            icon: Image.asset(
-              _selectedTab == _SelectedTab.home
-                  ? "assets/home_outlined.png"
-                  : "assets/home_filled.png",
-              width: 25,
-            ),
-          ),
-          DotNavigationBarItem(
-            icon: Image.asset(
-              _selectedTab == _SelectedTab.buy
-                  ? "assets/buy_outlined.png"
-                  : "assets/buy_filled.png",
-              width: 25,
-            ),
-          ),
-          DotNavigationBarItem(
-            icon: Image.asset(
-              _selectedTab == _SelectedTab.favorite
-                  ? "assets/favorite_outlined.png"
-                  : "assets/favorite_filled.png",
-              width: 25,
-            ),
-          ),
-          DotNavigationBarItem(
-            icon: Image.asset(
-              _selectedTab == _SelectedTab.profile
-                  ? "assets/profile_outlined.png"
-                  : "assets/profile_filled.png",
-              width: 25,
-            ),
-          ),
-        ],
-      ),
+      bottomNavigationBar: bottomNavBar,
     );
   }
 }
