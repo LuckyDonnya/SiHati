@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sihati/pages/homepage.dart';
-import 'package:sihati/pages/permohonan.dart';
+import 'package:sihati/pages/Permohonan/permohonanAKelahiran.dart';
+import 'package:sihati/pages/Permohonan/permohonanAKematian.dart';
 import 'package:sihati/pages/profile.dart';
 import 'package:material_symbols_icons/symbols.dart';
 import 'package:sihati/pages/statistik.dart';
@@ -29,9 +30,9 @@ class _menuState extends State<menu> {
     // ignore: non_constant_identifier_names
     final Listpage = <Widget>[
       homepage(),
-      const permohonan(),
-      const statistik(),
-      const profile()
+      permohonan(),
+      statistik(),
+      ProfilePage()
     ];
 
     final bottomNavBarItems = <BottomNavigationBarItem>[

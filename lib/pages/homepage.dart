@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:sihati/components/button_permohonan.dart';
-import 'package:sihati/pages/login.dart';
+import 'package:sihati/pages/Permohonan/permohonanAKelahiran.dart';
+import 'package:sihati/pages/ajukanPermohonan/dataPemohon.dart';
 import '../components/search_button.dart';
 
 class homepage extends StatefulWidget {
@@ -53,14 +52,30 @@ class _homepageState extends State<homepage> {
               SizedBox(
                 height: 20,
               ),
-              button_permohonan(
+              buttonPermohonan(
+                  ontap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) {
+                        return aktaKelahiran();
+                      }),
+                    );
+                  },
                   name: "Akta Kelahiran",
                   name2:
                       "Akta Kelahiran merupakan legalitas yang\nmembuktikan seseorang benar telah lahir."),
               SizedBox(
                 height: 20,
               ),
-              button_permohonan(
+              buttonPermohonan(
+                  ontap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) {
+                        return aktaKelahiran();
+                      }),
+                    );
+                  },
                   name: "Akta Kematian",
                   name2:
                       "Akta Kelahiran merupakan legalitas yang\nmembuktikan seseorang benar telah lahir.")

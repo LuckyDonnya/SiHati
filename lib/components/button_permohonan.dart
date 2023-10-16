@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:sihati/pages/login.dart';
+// import 'package:sihati/pages/login.dart';
 
-class button_permohonan extends StatelessWidget {
+// ignore: must_be_immutable
+class buttonPermohonan extends StatelessWidget {
   String name;
   String name2;
-  button_permohonan({required this.name, required this.name2});
+  buttonPermohonan(
+      {required this.ontap, required this.name, required this.name2});
+
+  void Function()? ontap;
 
   @override
   Widget build(BuildContext context) {
@@ -52,18 +56,10 @@ class button_permohonan extends StatelessWidget {
               width: 10,
             ),
             InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) {
-                    return login();
-                  }),
-                );
-              },
+              onTap: ontap,
               child: Container(
                 padding:
                     EdgeInsets.only(top: 5, bottom: 5, left: 11, right: 11),
-                // margin: EdgeInsets.symmetric(horizontal: 20),
                 decoration: BoxDecoration(
                     color: Color(0xFF3883F3),
                     borderRadius: BorderRadius.circular(10)),
@@ -76,20 +72,6 @@ class button_permohonan extends StatelessWidget {
                 ),
               ),
             ),
-            // Container(
-            //   padding: EdgeInsets.only(
-            //       top: 5, bottom: 5, left: 11, right: 11),
-            //   decoration: BoxDecoration(
-            //       borderRadius: BorderRadius.circular(10),
-            //       color: Color(0xff3883F3)),
-            //   child: Text(
-            //     "       Ajukan\nPermohonan",
-            //     style: GoogleFonts.poppins(
-            //         fontSize: 8.9,
-            //         fontWeight: FontWeight.bold,
-            //         color: Colors.white),
-            //   ),
-            // ),
           ],
         ),
       ),

@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sihati/components/button.dart';
-// import 'package:sihati/components/search_button.dart';
-// import 'package:sihati/components/squar_tile.dart';
 import 'package:sihati/components/textField.dart';
 import 'package:sihati/menu.dart';
-import 'package:sihati/pages/OnboardingScreen.dart';
 import 'package:sihati/pages/signup.dart';
 // import 'package:sihati/pages/homepage.dart';
 // import 'package:sihati/pages/signup.dart';

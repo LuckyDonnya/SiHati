@@ -31,11 +31,11 @@ class MyTextField extends StatelessWidget {
               ),
               borderSide: BorderSide(color: Colors.white),
             ),
-            focusedBorder: OutlineInputBorder(
+            focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: Color(0xffF0F0F0)),
             ),
             // prefixIcon: Widget1,
-            fillColor: Color.fromRGBO(248, 246, 246, 1),
+            fillColor: const Color.fromRGBO(248, 246, 246, 1),
             filled: true,
             hintText: hintText,
             hintStyle:
